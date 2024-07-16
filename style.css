@@ -131,3 +131,38 @@ h2{
 #vitalImg:hover {
     box-shadow: 0 0 30px rgba(255, 219, 41, 0.65);
 }
+
+/***************************About Us*****************************/
+#team-list {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  #about-list{
+    justify-content: center;
+    list-style: none;
+}
+  
+  #garr-list {
+    margin-right: 60px;
+  }
+  
+  #rey-list {
+    margin-right: 60px;
+  }
+  
+  #teamImg {
+    width: auto;
+    height: 500px;
+    border-radius: 30%;
+  }
+
+
+  
+  #welcome {
+    margin-top: 30px;
+    text-align: center;
+  }
