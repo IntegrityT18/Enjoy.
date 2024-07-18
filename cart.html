@@ -12,14 +12,82 @@
     <div>
         <ul id="navbar">
             <li><a href="index.html">Home</a></li>
+            <li><a href="store.html">Store</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a class='active' href="cart.html"><span class="material-symbols-outlined">shopping_bag</span></a></li>
         </ul>
     </div>
-
 </section>
 <body>
+    <section class="form" id="infoForm">
+        <div id="order">
+            <h3>Your Order</h3>
+            <div class="items" id="itemList"></div>
+            <p class="total" id="total">Total: $0.00</p>
+            <button class="clear" id="clear" type="button">Clear Order</button>
+        </div>
     
-    
+        <h3 class="formTitle">Payment Information</h3>
+        
+        <div class="formBox">
+            <form onsubmit="email(); reset(); return false;">
+                    <div class="formInputGroup">
+                        <label>Name:</label>
+                        <input class="formInput" id="payName" type="text" placeholder="Ex. Sean Thomas">
+                    </div>
+                    <div class="formInputGroup">
+                        <label>Phone #:</label>
+                        <input class="formInput" id="payPhone" type="text" placeholder="Ex. +1 123-456-7890">
+                    </div>
+                    <div class="formInputGroup">
+                        <label>Email:</label>
+                        <input class="formInput" id="payEmail" type="email" placeholder="name@gmail.com">
+                    </div>
+                <button class="formSubmitButton" id="placeOrderButton" type="submit">Place Order</button>
+                <p class="formBottomText">We'll contact you once your order is ready.</p>
+            </form>
+        </div>
+    </section>
 </body>
+<script type="module">
+    let itemList = document.getElementById("itemList");
+    let total = document.getElementById("total");
+    let clearButton = document.getElementById("clear");
+    window.onload = function(){
+        let price = 0.00;
+        for(let i = 0; i < localStorage.length; i++){
+            let item = document.createElement("p");
+            let str = localStorage.getItem(i);
+            item.classList.add("item");
+            item.innerHTML = str;
+            itemList.appendChild(item);
+            price += +parseFloat(str.substring(str.indexOf("$")+1)).toFixed(2);
+        }
+        total.innerHTML = "Total: $" + price.toFixed(2);
+    }
+    clearButton.addEventListener("click", function(){
+        localStorage.clear();
+        location.reload();
+    });
+</script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    let recip = document.getElementById("payEmail").value
+    function email(){
+        Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "enjoy.apparel.rgs@gmail.com",
+        Password : "4A1B8A1531C7FD88AB36AA7967D4842894C8",
+        To : recip,
+        From : "enjoy.apparel.rgs@gmail.com",
+        Subject : "Order Confirmation",
+        Body : "Name: " + document.getElementById("payName").value +
+                "<br> Email: " + document.getElementById("payEmail").value +
+                "<br> Phone #: " + document.getElementById("payPhone").value +
+                "<br> Total: " + document.getElementById("total").innerHTML.substring(document.getElementById("total").innerHTML.indexOf("$"))
+        }).then(
+        message => alert(message)
+    );
+}
+</script>
 </html>
