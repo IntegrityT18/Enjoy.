@@ -23,7 +23,7 @@
 <body>
     <section id = "food"> 
         <div class = "productBox" id="productBox">
-            <div class="section" id="Main">
+            <div class="section" id="Shirts">
             </div>
         </div>
     </section>
@@ -33,51 +33,67 @@
      let foods = [
         ["Let Joy Run The World", // Name of food
         15.00, // Price
-        "images/burger.jpg", // Picture
-        "Main"], // Type of food
+        "Shirts"], // Type of food
         
         ["Enjoy The Day",
         15.00,
-        "images/burger.jpg",
-        "Main"],
+        "Shirts"],
 
         ["Time Heals All Wounds",
         15.00,
-        "images/burger.jpg",
-        "Main"],
+        "Shirts"],
 
         ["Vital - Never Really Die",
         15.00,
-        "images/burger.jpg",
-        "Main"],
+        "Shirts"],
     ]
 
     for(let i = 0; i < foods.length; i++){
-        let section = document.getElementById(foods[i][4]);
+        let section = document.getElementById(foods[i][2]);
         if(section != null){
             let menuItem = document.createElement("div");
             menuItem.classList.add("product");
-            menuItem.style.backgroundImage = "url("+foods[i][3]+")"
             section.appendChild(menuItem);
+
+            let info = document.createElement("div");
+            info.classList.add("foodInfo");
+            menuItem.appendChild(info);
         
             let title = document.createElement("p");
-            title.innerHTML = "$"+ foods[i][2] + " - " + foods[i][0];
+            title.innerHTML = "$"+ foods[i][1] + " - " + foods[i][0];
             title.classList.add("foodTitle");
             info.appendChild(title);
 
-            let desc = document.createElement("p");
-            desc.innerHTML = foods[i][1];
-            desc.classList.add("foodDesc");
-            info.appendChild(desc);
+            let select = document.createElement("select");
+            let blank = document.createElement("option");
+            let option1 = document.createElement("option");
+            let option2 = document.createElement("option");
+            let option3 = document.createElement("option");
+            let option4 = document.createElement("option");
+            blank.innerHTML = "Select a size";
+            option1.innerHTML = "Small";
+            option2.innerHTML = "Medium";
+            option3.innerHTML = "Large";
+            option4.innerHTML = "X-Large";
+            select.appendChild(blank);
+            select.appendChild(option1);
+            select.appendChild(option2);
+            select.appendChild(option3);
+            select.appendChild(option4);
+            info.appendChild(select);
+
 
             let button = document.createElement("button");
-            button.innerHTML = "Add to order"
+            button.innerHTML = "Add to cart"
             button.classList.add("addCartButton");
             info.appendChild(button)
 
+
             button.addEventListener("click", function(){
-                localStorage.setItem(localStorage.length, foods[i][0] + "....................$" + foods[i][2]);
-                alert("Added item to order!");
+                let size = select.value;
+
+                localStorage.setItem(localStorage.length, foods[i][0] +  " (" + size + ")" + "....................$" + foods[i][1]);
+                alert("Added item to cart!");
             })   
         }
     }
