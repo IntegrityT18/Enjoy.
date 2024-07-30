@@ -429,10 +429,20 @@ h2 {
     }
 
     .productTitle{
-        font-size: 30px;
+        font-size: 20px;
+
     }
 
     .productParagraph{
+        font-size: 10px;
+        margin-top: 50%;
+    }
+
+    .addCartButton {
+        font-size: 10px;
+    }
+
+    .shirtDropdown {
         font-size: 10px;
     }
 
