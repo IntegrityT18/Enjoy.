@@ -428,6 +428,15 @@ h2 {
         margin-right: 0px;
     }
 
+    .productParagraph{
+        justify-self: center;
+        margin-right: 50%;
+        margin-left: 10px;
+        height: 15px;
+        font-size: 5px;
+        z-index: 2;
+    }
+
     #header {
         display: grid;
     }
