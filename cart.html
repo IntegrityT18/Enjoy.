@@ -53,6 +53,7 @@
         </div>
     </section>-->
 
+    
 
     <section class="form">
         <div class="hero-body">
@@ -110,6 +111,16 @@
               />
             </div>
           </div>
+
+          <div class="formInputGroup">
+            <label class="label">Order</label>
+            <div id="order">
+                <h3>Your Order</h3>
+                <div class="items" id="itemList"></div>
+                <p class="total" id="total">Total: $0.00</p>
+                <button class="clear" id="clear" type="button">Clear Order</button>
+            </div>
+          </div>
   
         <div class="field is-grouped">
           <div class="control">
@@ -158,6 +169,7 @@
       document.getElementById("message").textContent = "Submitting..";
       document.getElementById("message").style.display = "block";
       document.getElementById("submit-button").disabled = true;
+      localStorage.clear();
 
       // Collect the form data
       var formData = new FormData(this);
