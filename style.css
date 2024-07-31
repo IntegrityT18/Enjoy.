@@ -451,19 +451,21 @@ h2 {
     }
 
     #garr-list {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     #st-list {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     #rey-list {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     #origin {
         font-size: 10px;
+        height: 50%;
+        width: 100%;
     }
 
     #teamPic {
