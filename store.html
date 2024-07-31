@@ -45,7 +45,7 @@
 
         ["Time Heals All Wounds",
         15.00,
-        " A reminder that with the passage of time, all wounds—whether physical or spiritual—will diminish in intensity. It is important to be patient with yourself and understand that you may not feel better right away, but through sustained effort over time, those feelings will fade, and you will emerge stronger than before.",
+        "A reminder that with the passage of time, all wounds—whether physical or spiritual—will diminish in intensity. It is important to be patient with yourself and understand that you may not feel better right away, but through sustained effort over time, those feelings will fade, and you will emerge stronger than before.",
         "Images/THAW.jpg",
         "Shirts"],
 
@@ -59,28 +59,6 @@
     for(let i = 0; i < products.length; i++){
         let section = document.getElementById(products[i][4]);
         if(section != null){
-            let menuItem = document.createElement("div");
-            menuItem.classList.add("product");
-            section.appendChild(menuItem);
-
-            let info = document.createElement("div");
-            info.classList.add("productInfo");
-            menuItem.appendChild(info);
-        
-            let title = document.createElement("p");
-            title.innerHTML = "$"+ products[i][1] + " - " + products[i][0];
-            title.classList.add("productTitle");
-            info.appendChild(title);
-
-            let image = document.createElement("img");
-            image.innerHTML = products[i][3];
-            image.classList.add("productImg");
-            info.appendChild(image);
-
-            let paragraph = document.createElement("p");
-            paragraph.innerHTML = products[i][2];
-            paragraph.classList.add("productParagraph");
-            info.appendChild(paragraph);
 
             let select = document.createElement("select");
             let blank = document.createElement("option");

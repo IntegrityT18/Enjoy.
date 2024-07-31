@@ -3,9 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Time Heals All Wounds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Order Let Joy Run The World</title>
 </head>
+<section id="header">
+    <a href="index.html"><img src="Images/logo.png" class="logo" alt="Logo"></a>
+    <div>
+        <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="cart.html"><span class="material-symbols-outlined">shopping_bag</span></a></li>
+        </ul>
+    </div>
+
+</section>
 <body>
+    <div class="shirtStuff">
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+            <img src="Images/THAW.jpg" style="width:100%">
+            </div>
+        
+            <div class="mySlides fade">
+            <!--<img src="Images/.jpg" style="width:100%">-->
+            </div>
+        </div>
+        <br>
+    
+        <section id = "food"> 
+            <div class = "productBox" id="productBox">
+                <div class="section" id="Shirts">
+                </div>
+            </div>
+        </section>
+    </div>
     
 </body>
+<script type="module">
+     let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    let products = [
+        "Time Heals All Wounds", // Name of food
+        15.00, // Price
+        "A reminder that with the passage of time, all wounds—whether physical or spiritual—will diminish in intensity. It is important to be patient with yourself and understand that you may not feel better right away, but through sustained effort over time, those feelings will fade, and you will emerge stronger than before.",
+        "Shirts" // Type of food
+    ]
+        let section = document.getElementById(products[3]);
+        if(section != null){
+            let menuItem = document.createElement("div");
+            menuItem.classList.add("product");
+            section.appendChild(menuItem);
+
+            let info = document.createElement("div");
+            info.classList.add("productInfo");
+            menuItem.appendChild(info);
+        
+            let title = document.createElement("p");
+            title.innerHTML = "$"+ products[1] + " - " + products[0];
+            title.classList.add("productTitle");
+            info.appendChild(title);
+
+            let paragraph = document.createElement("p");
+            paragraph.innerHTML = products[2];
+            paragraph.classList.add("productParagraph");
+            info.appendChild(paragraph);
+
+            let select = document.createElement("select");
+            let blank = document.createElement("option");
+            let option1 = document.createElement("option");
+            let option2 = document.createElement("option");
+            let option3 = document.createElement("option");
+            let option4 = document.createElement("option");
+            blank.innerHTML = "Select a size";
+            option1.innerHTML = "Small";
+            option2.innerHTML = "Medium";
+            option3.innerHTML = "Large";
+            option4.innerHTML = "X-Large";
+            select.appendChild(blank);
+            select.appendChild(option1);
+            select.appendChild(option2);
+            select.appendChild(option3);
+            select.appendChild(option4);
+            select.classList.add("shirtDropdown");
+            info.appendChild(select);
+
+
+            let button = document.createElement("button");
+            button.innerHTML = "Add to cart"
+            button.classList.add("addCartButton");
+            info.appendChild(button)
+
+
+            button.addEventListener("click", function(){
+                let size = select.value;
+                localStorage.setItem(localStorage.length, products[0] +  " (" + size + ")" + "....................$" + products[1]);
+                alert("Added item to cart!");
+            })
+        }
+
+
+</script>
 </html>
