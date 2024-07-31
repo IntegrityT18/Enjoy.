@@ -141,6 +141,20 @@ h2 {
   to {opacity: 1}
 }
 
+#shirtOrder {
+    display: flex;
+}
+
+#shirtOrder img{
+    height: auto;
+    width: 400px;
+}
+
+#shirtOrder li{
+    display: grid;
+
+}
+
 /***************************About Us*****************************/
 #team-list {
     display: flex;

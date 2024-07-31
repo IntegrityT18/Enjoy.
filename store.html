@@ -34,26 +34,30 @@
         ["Let Joy Run The World", // Name of food
         15.00, // Price
         "By allowing joy to guide our actions and decisions, we can create a more positive and fulfilling existence. The idea is that joy should be a central driving force in how we interact with others and tackle life’s everyday challenges. Embracing a stronger presence of joy helps foster a sense of community, improve well-being, and contribute to a more harmonious world.",
+        "Images/LJRTW.jpg",
         "Shirts"], // Type of food
         
         ["Enjoy The Day",
         15.00,
         "While it is a rather obvious and simplistic idea, the quote is a powerful reminder to appreciate the most of the present moment. It encourages mindfulness and a focus on finding happiness in the here and now, rather than dwelling on the past or worrying about the possible future. Embrace the opportunities given to you each and every day no matter how big or how small they may be. Adopt the proactive approach to life in order to prioritize your own joy, pleasure, and general appreciation for life.",
+        "Images/ETD.jpg",
         "Shirts"],
 
         ["Time Heals All Wounds",
         15.00,
         " A reminder that with the passage of time, all wounds—whether physical or spiritual—will diminish in intensity. It is important to be patient with yourself and understand that you may not feel better right away, but through sustained effort over time, those feelings will fade, and you will emerge stronger than before.",
+        "Images/THAW.jpg",
         "Shirts"],
 
         ["Vital - Never Really Die",
         15.00,
         "Vitality is leaving an impact on the world so profound that you become unforgettable. By making a significant mark on the world—whether through achievements, ideas, or contributions to humanity—your influence continues to shape the future. Through your impact, you can attain a form of immortality that transcends your physical existence, ensuring that you never really die.",
+        "Images/Vital.jpg",
         "Shirts"],
     ]
 
     for(let i = 0; i < products.length; i++){
-        let section = document.getElementById(products[i][3]);
+        let section = document.getElementById(products[i][4]);
         if(section != null){
             let menuItem = document.createElement("div");
             menuItem.classList.add("product");
@@ -67,6 +71,11 @@
             title.innerHTML = "$"+ products[i][1] + " - " + products[i][0];
             title.classList.add("productTitle");
             info.appendChild(title);
+
+            let image = document.createElement("img");
+            image.innerHTML = products[i][3];
+            image.classList.add("productImg");
+            info.appendChild(image);
 
             let paragraph = document.createElement("p");
             paragraph.innerHTML = products[i][2];
