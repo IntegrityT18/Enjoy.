@@ -450,7 +450,23 @@ h2 {
         font-size: 30px;
     }
 
-    .about-text {
+    #garr-list {
+        font-size: 10px;
+    }
+
+    #st-list {
+        font-size: 10px;
+    }
+
+    #rey-list {
+        font-size: 10px;
+    }
+
+    #about-list {
+        font-size: 10px;
+    }
+
+    #origin {
         font-size: 10px;
     }
 
